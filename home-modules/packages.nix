@@ -126,8 +126,6 @@ in
       # Cloudflare-warp
       cloudflare-warp
       
-      # Python with required packages for wallpaper analysis
-      pythonEnv
       eza  # Modern ls replacement
 
       # Minimal Qt/KDE packages (only what's needed for functionality)

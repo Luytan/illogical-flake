@@ -4,7 +4,6 @@ inputs:
 
 let
   cfg = config.programs.illogical-impulse;
-  pythonEnv = cfg.internal.pythonEnv;
   
   # The raw QuickShell package
   qsPackage = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default;
@@ -62,7 +61,6 @@ in
       '')
     ] ++ qtImports ++ [
       pkgs.qt6Packages.qt6ct
-      pythonEnv
     ];
   };
 }
