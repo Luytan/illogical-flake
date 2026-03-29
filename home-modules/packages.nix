@@ -7,6 +7,13 @@ let
 
   # Custom packages
   customPkgs = import ../pkgs { inherit pkgs; };
+  pythonPackages = pkgs.python3Packages;
+
+  kdeMaterialYouColors = pythonPackages."kde-material-you-colors".overridePythonAttrs (old: {
+    propagatedBuildInputs = (old.propagatedBuildInputs or []) ++ [
+      pythonPackages."python-magic"
+    ];
+  });
 
   # Python environment for quickshell wallpaper analysis
   pythonEnv = pkgs.python3.withPackages (ps: [
@@ -14,7 +21,7 @@ let
     ps.cffi
     ps.click
     ps."dbus-python"
-    ps."kde-material-you-colors"
+    kdeMaterialYouColors
     ps.libsass
     ps.loguru
     ps."material-color-utilities"
